@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Carfuel.Utils;
 
 namespace Carfuel.Model
 {
@@ -10,7 +11,7 @@ namespace Carfuel.Model
     {
         public FillUp()
         {
-            this.Date = DateTime.Now;
+            this.Date = SystemTime.Now();
         }
         public int Odometer { get; set; }
 

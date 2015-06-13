@@ -5,6 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using Carfuel.Utils;
+
+
 
 namespace CarFuel.Facts
 {
@@ -34,13 +37,20 @@ namespace CarFuel.Facts
         public void DefaultDate() {
 
             //a
+            var now = DateTime.Now;
+            SystemTime.SetDateTime(now);
+
             var f = new FillUp();
+            f.Odometer = 1000;
+            f.IsFull = true;
+            f.Liters = 50.0;
             
             //a
             DateTime dt = f.Date;
             
             //a
             Assert.Equal(expected: DateTime.Now, actual: dt);
+            SystemTime.ResetDateTime();
 
         }
     }
